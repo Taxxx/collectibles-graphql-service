@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { Collectible } from "../models/Collectible";
-import { CreateCollectibleInput } from "../inputs/CreateCollectibleInput";
-import { UpdateCollectibleInput } from "../inputs/UpdateCollectibleInput";
+import { Collectible } from "../models/collectible";
+import { CreateCollectibleInput } from "../inputs/createCollectibleInput";
+import { UpdateCollectibleInput } from "../inputs/updateCollectibleInput";
 
 @Resolver()
 export class CollectibleResolver {

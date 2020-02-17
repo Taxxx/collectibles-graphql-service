@@ -3,7 +3,7 @@ import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
 
-import { CollectibleResolver } from "./resolvers/CollectibleResolver";
+import { CollectibleResolver } from "./resolvers/collectibleResolver";
 
 async function main() {
   await createConnection();
