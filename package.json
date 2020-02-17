@@ -1,0 +1,23 @@
+{
+  "name": "collectibles-graphql-service",
+  "version": "1.0.0",
+  "description": "graphql api collectibles",
+  "main": "index.js",
+  "author": "Henrry Chuquimia - TaXxX",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.10.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.1.1",
+    "type-graphql": "^0.17.6",
+    "typeorm": "^0.2.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "start": "nodemon -w src --ext ts --exec ts-node src/index.ts"
+  }
+}
