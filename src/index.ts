@@ -5,7 +5,7 @@ import { buildSchema } from 'type-graphql';
 
 import { CollectibleResolver } from './resolvers/collectibleResolver';
 
-async function main() {
+async function main(): Promise<void> {
     await createConnection();
     const schema = await buildSchema({ resolvers: [CollectibleResolver] });
     const server = new ApolloServer({ schema });
