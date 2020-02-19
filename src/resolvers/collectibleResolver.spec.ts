@@ -6,7 +6,7 @@ import { CollectibleResolver } from './collectibleResolver';
 
 describe('CollectibleResolver', () => {
     let instance: CollectibleResolver;
-    let schema: any;
+    let schema: GraphQLSchema;
     beforeAll(async () => {
         await createConnection();
         schema = await buildSchema({ resolvers: [CollectibleResolver] });
@@ -31,7 +31,10 @@ describe('CollectibleResolver', () => {
             }
         }`;
         const result = await graphql(schema, mutation);
-        // expect(result.data).toBeNull();
-        console.log('result -> ', result.data);
+        expect(result.data).toMatchObject({
+            createCollectible: {
+                Name: 'Cardia de Scorpio',
+            },
+        });
     });
 });
