@@ -37,4 +37,20 @@ describe('CollectibleResolver', () => {
             },
         });
     });
+
+    it('Should get collectibles', async () => {
+        const query = `
+        {
+            collectibles {
+                Name
+            }
+        }`;
+        const result = await graphql(schema, query);
+        console.log('result -> ', result.data);
+        // expect(result.data).toMatchObject({
+        //     createCollectible: {
+        //         Name: 'Cardia de Scorpio',
+        //     },
+        // });
+    });
 });
