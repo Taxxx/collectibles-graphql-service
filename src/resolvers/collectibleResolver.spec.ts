@@ -8,7 +8,12 @@ describe('CollectibleResolver', () => {
     let instance: CollectibleResolver;
     let schema: GraphQLSchema;
     beforeAll(async () => {
-        await createConnection('test');
+        await createConnection({
+            type: 'sqlite',
+            database: './db.test.sqlite3',
+            entities: ['./src/models/!(*.spec.ts)'],
+            synchronize: true,
+        });
         schema = await buildSchema({ resolvers: [CollectibleResolver] });
     });
     beforeEach(() => {
@@ -31,7 +36,6 @@ describe('CollectibleResolver', () => {
             }
         }`;
         const result = await graphql(schema, mutation);
-        console.log('result -> ', result);
         expect(result.data).toMatchObject({
             createCollectible: {
                 Name: 'Cardia de Scorpio',

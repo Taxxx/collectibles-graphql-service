@@ -1,14 +1,6 @@
-[{
-    "name": "development",
+{
     "type": "sqlite",
     "database": "./db.dev.sqlite3",
     "entities": ["./src/models/!(*.spec.ts)"],
     "synchronize": true
-},
-{
-    "name": "test",
-    "type": "sqlite",
-    "database": "./db.test.sqlite3",
-    "entities": ["./src/models/!(*.spec.ts)"],
-    "synchronize": true
-}]
+}
