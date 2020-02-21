@@ -1,13 +1,25 @@
-import { Resolver, Query, Mutation, Arg } from 'type-graphql';
+import { Resolver, Query, Mutation, Arg, ObjectType, Field, Int } from 'type-graphql';
+import { getConnection } from 'typeorm';
+
 import { Collectible } from '../models/collectible';
 import { CreateCollectibleInput } from '../inputs/createCollectibleInput';
 import { UpdateCollectibleInput } from '../inputs/updateCollectibleInput';
 
+@ObjectType()
+export default class GetCollectiblesResponse {
+    @Field(() => [Collectible])
+    collectibles: Collectible[];
+
+    @Field(() => Int)
+    totalCount: number;
+}
+
 @Resolver()
 export class CollectibleResolver {
-    @Query(() => [Collectible])
-    collectibles(): Promise<Collectible[]> {
-        return Collectible.find();
+    @Query(() => GetCollectiblesResponse)
+    async getCollectibles(): Promise<object> {
+        const collectibles = await Collectible.find();
+        return { collectibles, totalCount: collectibles.length };
     }
 
     @Query(() => Collectible)

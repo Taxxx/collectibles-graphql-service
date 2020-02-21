@@ -8,7 +8,7 @@ describe('CollectibleResolver', () => {
     let instance: CollectibleResolver;
     let schema: GraphQLSchema;
     beforeAll(async () => {
-        await createConnection();
+        await createConnection('test');
         schema = await buildSchema({ resolvers: [CollectibleResolver] });
     });
     beforeEach(() => {
@@ -31,6 +31,7 @@ describe('CollectibleResolver', () => {
             }
         }`;
         const result = await graphql(schema, mutation);
+        console.log('result -> ', result);
         expect(result.data).toMatchObject({
             createCollectible: {
                 Name: 'Cardia de Scorpio',
@@ -39,18 +40,16 @@ describe('CollectibleResolver', () => {
     });
 
     it('Should get collectibles', async () => {
-        const query = `
-        {
-            collectibles {
-                Name
+        const query = `{
+            getCollectibles {
+                totalCount
             }
         }`;
         const result = await graphql(schema, query);
-        console.log('result -> ', result.data);
-        // expect(result.data).toMatchObject({
-        //     createCollectible: {
-        //         Name: 'Cardia de Scorpio',
-        //     },
-        // });
+        expect(result.data).toMatchObject({
+            getCollectibles: {
+                totalCount: 1,
+            },
+        });
     });
 });
