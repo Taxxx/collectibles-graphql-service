@@ -1,5 +1,4 @@
 import { Resolver, Query, Mutation, Arg, ObjectType, Field, Int } from 'type-graphql';
-import { getConnection } from 'typeorm';
 
 import { Collectible } from '../models/collectible';
 import { CreateCollectibleInput } from '../inputs/createCollectibleInput';
