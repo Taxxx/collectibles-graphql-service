@@ -8,7 +8,35 @@ export class Collectible extends BaseEntity {
     @PrimaryGeneratedColumn()
     CollectibleID: number;
 
+    @Field()
+    @Column({ type: 'varchar', length: 100 })
+    Name: string;
+
+    @Field()
+    @Column({ type: 'varchar', length: 300 })
+    Description: string;
+
+    @Field(() => String)
+    @Column({ type: 'money' })
+    Price: number;
+
     @Field(() => String)
     @Column()
-    Name: string;
+    Brand: string;
+
+    @Field()
+    @Column({ type: 'date' })
+    DateAcquisition: Date;
+
+    // @Field(() => Date)
+    // @Column()
+    // DateOfProduction: Date;
+
+    // @Field(() => String)
+    // @Column()
+    // ProvidedBy: string;
+
+    // @Field(() => Number)
+    // @Column()
+    // Rate: number;
 }

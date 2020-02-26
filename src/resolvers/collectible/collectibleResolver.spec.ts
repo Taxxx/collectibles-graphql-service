@@ -2,8 +2,8 @@ import { GraphQLSchema, graphql } from 'graphql';
 import { createConnection, getConnection, QueryRunner } from 'typeorm';
 import { buildSchema } from 'type-graphql';
 import { CollectibleResolver } from './collectibleResolver';
-import { Collectible } from '../models/collectible';
-import data from '../mocks/collectibles.json';
+import { Collectible } from '../../models/collectible';
+import data from '../../mocks/collectibles.json';
 
 describe('CollectibleResolver', () => {
     let instance: CollectibleResolver;

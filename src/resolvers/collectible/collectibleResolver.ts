@@ -1,8 +1,7 @@
 import { Resolver, Query, Mutation, Arg, ObjectType, Field, Int } from 'type-graphql';
 
-import { Collectible } from '../models/collectible';
-import { CreateCollectibleInput } from '../inputs/createCollectibleInput';
-import { UpdateCollectibleInput } from '../inputs/updateCollectibleInput';
+import { Collectible } from '../../models/collectible';
+import { CollectibleInput } from '../../models/collectibleInput';
 
 @ObjectType()
 export default class GetCollectiblesResponse {
@@ -27,7 +26,7 @@ export class CollectibleResolver {
     }
 
     @Mutation(() => Collectible)
-    async createCollectible(@Arg('data') data: CreateCollectibleInput): Promise<Collectible> {
+    async createCollectible(@Arg('data') data: CollectibleInput): Promise<Collectible> {
         const collectible = Collectible.create(data);
         await collectible.save();
         return collectible;
@@ -36,7 +35,7 @@ export class CollectibleResolver {
     @Mutation(() => Collectible)
     async updateCollectible(
         @Arg('CollectibleID') CollectibleID: number,
-        @Arg('data') data: UpdateCollectibleInput,
+        @Arg('data') data: CollectibleInput,
     ): Promise<Collectible> {
         const collectible = await Collectible.findOne({ where: { CollectibleID } });
         if (!collectible) throw new Error('Collectible not found!');
