@@ -1,9 +1,30 @@
 [{
-    "Name": "mp-10"
+    "Name": "mp-10",
+    "Description": "Beatiful Optimus Prime figure from Transformes it has beatiful details, includes roller and gun",
+    "Price": 100,
+    "Brand": "Tahara",
+    "DateAcquisition": "07/15/2020",
+    "DateOfProduction": "12/25/1995",
+    "ProvidedBy": "Pepito Perez",
+    "Rate": 5
 },
 {
-    "Name": "Ryu"
+    "Name": "Ryu",
+    "Description": "This figure is from the clasic video game Street Fighter, nice to have in my collection",
+    "Price": 99.67,
+    "Brand": "Storm Collectibles",
+    "DateAcquisition": "08/20/2020",
+    "DateOfProduction": "10/25/1998",
+    "ProvidedBy": "Juan WCA",
+    "Rate": 4.5
 },
 {
-    "Name": "Shaka de Virgo"
+    "Name": "Shaka de Virgo",
+    "Description": "This figure is from the popular anime Saint Seiya, this is the ex version of that figure, unfortunately has a detail in the right elbow",
+    "Price": 125.67,
+    "Brand": "Bandai",
+    "DateAcquisition": "09/23/2020",
+    "DateOfProduction": "10/25/2000",
+    "ProvidedBy": "Gustavo SC Store",
+    "Rate": 3
 }]

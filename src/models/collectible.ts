@@ -9,34 +9,34 @@ export class Collectible extends BaseEntity {
     CollectibleID: number;
 
     @Field()
-    @Column({ type: 'varchar', length: 100 })
+    @Column({ type: 'varchar', length: 80 })
     Name: string;
 
     @Field()
     @Column({ type: 'varchar', length: 300 })
     Description: string;
 
-    @Field(() => String)
-    @Column({ type: 'money' })
+    @Field(() => Number)
+    @Column({ type: 'numeric', precision: 7, scale: 4 })
     Price: number;
 
     @Field(() => String)
-    @Column()
+    @Column({ type: 'varchar', length: 50 })
     Brand: string;
 
-    @Field()
-    @Column({ type: 'date' })
-    DateAcquisition: Date;
+    @Field(() => String)
+    @Column({ type: 'timestamp without time zone' })
+    DateAcquisition: string;
 
-    // @Field(() => Date)
-    // @Column()
-    // DateOfProduction: Date;
+    @Field(() => String, { nullable: true })
+    @Column({ type: 'timestamp without time zone' })
+    DateOfProduction: string;
 
-    // @Field(() => String)
-    // @Column()
-    // ProvidedBy: string;
+    @Field(() => String, { nullable: true })
+    @Column({ nullable: true, type: 'varchar', length: 50 })
+    ProvidedBy: string;
 
-    // @Field(() => Number)
-    // @Column()
-    // Rate: number;
+    @Field(() => Number)
+    @Column({ type: 'numeric', precision: 2, scale: 1 })
+    Rate: number;
 }

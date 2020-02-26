@@ -1,5 +1,5 @@
 import { GraphQLSchema, graphql } from 'graphql';
-import { createConnection, getConnection, QueryRunner } from 'typeorm';
+import { createConnection, getConnection, QueryRunner, Connection } from 'typeorm';
 import { buildSchema } from 'type-graphql';
 import { CollectibleResolver } from './collectibleResolver';
 import { Collectible } from '../../models/collectible';
@@ -9,15 +9,21 @@ describe('CollectibleResolver', () => {
     let instance: CollectibleResolver;
     let schema: GraphQLSchema;
     let queryRunner: QueryRunner;
+    let connection: Connection;
     beforeAll(async () => {
         await createConnection({
-            type: 'sqlite',
-            database: './db.test.sqlite3',
-            entities: ['./src/models/!(*.spec.ts)'],
+            type: 'postgres',
+            host: 'localhost',
+            port: 5432,
+            username: 'postgres',
+            password: 'postgres',
+            database: 'db-test',
+            logging: false,
             synchronize: true,
+            entities: ['./src/models/!(*.spec.ts)'],
         });
         schema = await buildSchema({ resolvers: [CollectibleResolver] });
-        const connection = getConnection();
+        connection = getConnection();
         queryRunner = connection.createQueryRunner();
         await connection
             .createQueryBuilder()
@@ -71,15 +77,33 @@ describe('CollectibleResolver', () => {
             createCollectible(
                 data: {
                     Name: "Cardia de Scorpio"
+                    Description: "legendary figure of cardia"
+                    Price: 66.6
+                    Brand: "Bandai"
+                    DateAcquisition: "2011-10-05T14:48:00.000Z"
+                    DateOfProduction: "2011-10-05T14:48:00.000Z"
+                    Rate: 4.5
                 }
             ) {
                 Name
+                Description
+                Price
+                Brand
+                DateAcquisition
+                DateOfProduction
+                Rate
             }
         }`;
         const result = await graphql(schema, mutation);
         expect(result.data).toMatchObject({
             createCollectible: {
                 Name: 'Cardia de Scorpio',
+                Description: 'legendary figure of cardia',
+                Price: 66.6,
+                Brand: 'Bandai',
+                DateAcquisition: '2011-10-05T14:48:00.000Z',
+                DateOfProduction: '2011-10-05T14:48:00.000Z',
+                Rate: 4.5,
             },
         });
         const collectiblesAfterCreate = await Collectible.find();
@@ -154,5 +178,7 @@ describe('CollectibleResolver', () => {
 
     afterAll(async () => {
         await queryRunner.dropTable('collectible');
+        await queryRunner.release();
+        await connection.close();
     });
 });
