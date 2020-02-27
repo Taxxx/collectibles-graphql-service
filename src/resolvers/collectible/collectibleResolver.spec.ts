@@ -17,7 +17,7 @@ describe('CollectibleResolver', () => {
             port: 5432,
             username: 'postgres',
             password: 'postgres',
-            database: 'db-test',
+            database: 'collectibles-db-test',
             logging: false,
             synchronize: true,
             entities: ['./src/models/!(*.spec.ts)'],

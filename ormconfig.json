@@ -4,7 +4,7 @@
     "port": 5432,
     "username": "postgres",
     "password": "postgres",
-    "database": "postgres",
+    "database": "collectibles-db",
     "logging": false,
     "synchronize": true,
     "entities": ["./src/models/!(*.spec.ts)"]
