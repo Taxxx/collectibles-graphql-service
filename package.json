@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "build": "tsc -p ."
   }
 }
