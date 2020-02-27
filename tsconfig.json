@@ -9,6 +9,7 @@
       "strictPropertyInitialization": false,
       "resolveJsonModule": true,
       "outDir": "./dist",
-      "rootDir": "./src"
-    }
+      "rootDir": "./src",
+    },
+    "exclude": ["**/*.spec.ts"]
   }
