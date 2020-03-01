@@ -1,6 +1,11 @@
 {
-    "type": "sqlite",
-    "database": "./db.sqlite3",
-    "entities": ["./src/models/!(*.spec.ts)"],
-    "synchronize": true
-}
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "collectibles-db",
+    "logging": false,
+    "synchronize": true,
+    "entities": ["./src/models/!(*.spec.ts)"]
+  }
