@@ -13,10 +13,10 @@ describe('CollectibleResolver', () => {
     beforeAll(async () => {
         await createConnection({
             type: 'postgres',
-            host: 'localhost',
+            host: '68.183.117.104',
             port: 5432,
-            username: 'postgres',
-            password: 'postgres',
+            username: 'taxxx',
+            password: 'taxxx',
             database: 'collectibles-db-test',
             logging: false,
             synchronize: true,

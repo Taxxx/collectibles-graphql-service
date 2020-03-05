@@ -12,12 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'yarn install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'yarn test'
             }
         }
     }
