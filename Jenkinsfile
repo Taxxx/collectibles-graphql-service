@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'node yarn dist/index.js'
+                sh 'node dist/index.js'
             }
         }
     }
