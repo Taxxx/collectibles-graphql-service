@@ -13,11 +13,17 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'yarn install'
+                sh 'yarn build'
             }
         }
         stage('Test') {
             steps {
                 sh 'yarn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'node yarn dist/index.js'
             }
         }
     }

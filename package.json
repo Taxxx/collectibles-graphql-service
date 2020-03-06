@@ -10,7 +10,6 @@
     "class-validator": "^0.11.0",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.13",
-    "sqlite3": "^4.1.1",
     "type-graphql": "^0.17.6",
     "typeorm": "^0.2.22"
   },
@@ -32,6 +31,6 @@
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "npm run lint && yarn jest",
-    "build": "tsc -p ."
+    "build": "tsc -p . && cp package.json dist && cp -rv node_modules dist/node_modules"
   }
 }
