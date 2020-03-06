@@ -31,6 +31,6 @@
     "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "npm run lint && yarn jest",
-    "build": "tsc -p . && cp package.json dist && cp -rv node_modules dist/node_modules"
+    "build": "tsc -p . && cp package.json dist && cp -R node_modules dist/node_modules"
   }
 }
