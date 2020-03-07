@@ -15,7 +15,7 @@ pipeline {
                 sh 'yarn install'
                 sh 'yarn build'
                 sh 'pwd'
-                sh 'cp /home/taxxx/config-collectibles/ormconfig.json dist'
+                sh 'cp /home/taxxx/config-collectibles/ormconfig.json /var/lib/jenkins/workspace/collectibles-graphql-service/dist'
             }
         }
         stage('Test') {
