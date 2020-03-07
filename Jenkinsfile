@@ -14,6 +14,8 @@ pipeline {
             steps {
                 sh 'yarn install'
                 sh 'yarn build'
+                sh 'pwd'
+                sh 'cp /home/taxxx/config-collectibles/ormconfig.js ./dist'
             }
         }
         stage('Test') {
