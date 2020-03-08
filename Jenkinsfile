@@ -15,7 +15,7 @@ pipeline {
                 sh 'yarn install'
                 sh 'yarn build'
                 sh 'pwd'
-                sh 'cp /var/configApps/ormconfig.json ./dist'
+                sh 'yarn cp-config-files'
             }
         }
         stage('Test') {
