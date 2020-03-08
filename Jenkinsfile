@@ -14,8 +14,9 @@ pipeline {
             steps {
                 sh 'yarn install'
                 sh 'yarn build'
-                sh 'pwd'
-                sh 'yarn cp-config-files'
+                dir('/var/configApps/'){
+                    sh 'pwd'
+                }
             }
         }
         stage('Test') {
