@@ -14,9 +14,10 @@ pipeline {
             steps {
                 sh 'yarn install'
                 sh 'yarn build'
-                dir('/var/configApps/'){
-                    sh 'pwd'
+                withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
+                    sh "cp \$ormconfig /dist/ormconfig.json"
                 }
+                sh 'ls dist'
             }
         }
         stage('Test') {
