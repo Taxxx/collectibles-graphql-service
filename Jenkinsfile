@@ -8,6 +8,7 @@ pipeline {
     environment { 
         CI = 'true'
         HOME = '.'
+        NPM_CONFIG_PREFIX='/home/node/.npm-global'
     }
     stages {
         stage('Build') {
