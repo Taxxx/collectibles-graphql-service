@@ -12,12 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'npm install pm2 -g'
                 sh 'yarn install'
                 sh 'yarn build'
                 withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
                     sh "cp \$ormconfig dist/ormconfig.json"
                 }
-                sh 'ls dist'
             }
         }
         stage('Test') {
