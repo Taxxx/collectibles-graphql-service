@@ -15,7 +15,7 @@ pipeline {
                 sh 'yarn install'
                 sh 'yarn build'
                 withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
-                    sh "cp \$ormconfig /dist/ormconfig.json"
+                    sh "cp \$ormconfig dist/ormconfig.json"
                 }
                 sh 'ls dist'
             }
