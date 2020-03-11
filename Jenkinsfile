@@ -12,6 +12,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'mkdir ~/.npm-global'
+                sh 'npm config set prefix "~/.npm-global"'
                 sh 'npm install pm2 -g'
                 sh 'pm2'
                 sh 'yarn install'
