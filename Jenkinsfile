@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'yarn global add pm2'
+                sh 'npm install pm2 -g'
                 sh 'pm2'
                 sh 'yarn install'
                 sh 'yarn build'
