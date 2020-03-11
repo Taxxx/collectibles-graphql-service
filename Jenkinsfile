@@ -13,6 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'yarn global add pm2'
+                sh 'pm2'
                 sh 'yarn install'
                 sh 'yarn build'
                 withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
@@ -27,7 +28,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'whereis pm2'
                 sh 'pm2 start dist/ecosystem.config.js --only collectibles-graphql-service'
             }
         }
