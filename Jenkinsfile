@@ -8,12 +8,11 @@ pipeline {
     environment { 
         CI = 'true'
         HOME = '.'
-        NPM_CONFIG_PREFIX='/home/node/.npm-global'
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm install pm2 -g'
+                sh 'sudo yarn global add pm2'
                 sh 'yarn install'
                 sh 'yarn build'
                 withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
