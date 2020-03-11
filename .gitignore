@@ -1,7 +1,6 @@
 node_modules
 dist
 *.sqlite3
-*.js
 *.map
 coverage
 .history

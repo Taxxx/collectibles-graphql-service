@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'node dist/index.js'
+                sh 'pm2 start dist/ecosystem.config.js --only collectibles-graphql-service'
             }
         }
     }
