@@ -12,10 +12,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mkdir ~/.npm-global'
-                sh 'npm config set prefix "~/.npm-global"'
-                sh 'npm install pm2 -g'
-                sh 'pm2'
+                sh 'yarn global add pm2'
+                sh '.yarn/bin/pm2'
                 sh 'yarn install'
                 sh 'yarn build'
                 withCredentials([file(credentialsId: 'ormconfig-test1', variable: 'ormconfig')]) {
