@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 module.exports = [
     {
-        script: 'index.js',
+        script: 'dist/index.js',
         name: 'collectibles-graphql-service',
         exec_mode: 'cluster',
         instances: 2,
