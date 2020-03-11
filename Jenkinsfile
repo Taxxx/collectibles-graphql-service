@@ -27,6 +27,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'whereis pm2'
                 sh 'pm2 start dist/ecosystem.config.js --only collectibles-graphql-service'
             }
         }
