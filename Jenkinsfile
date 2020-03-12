@@ -25,10 +25,11 @@ pipeline {
                 sh 'yarn test'
             }
         }
-        stage('Deploy') {
+        stage('Docker Deploy') {
             steps {
                 dir('dist') {
-                    sh '../.yarn/bin/pm2 start ecosystem.config.js --only collectibles-graphql-service'
+                    sh 'docker build -t collectibles-graphql-service .'
+                    sh 'docker run -p 4000:4000 -d collectibles-graphql-service'
                 }
             }
         }
