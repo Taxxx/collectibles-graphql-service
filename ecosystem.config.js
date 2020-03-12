@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 module.exports = [
     {
-        script: 'dist/index.js',
+        script: 'index.js',
         name: 'collectibles-graphql-service',
         exec_mode: 'cluster',
         instances: 2,
@@ -11,5 +11,6 @@ module.exports = [
         env_production: {
             NODE_ENV: 'production',
         },
+        out_file: 'log/collectibles-graphql-service.log',
     },
 ];
