@@ -28,7 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir('dist') {
-                    sh '.yarn/bin/pm2 start ecosystem.config.js --only collectibles-graphql-service'
+                    sh '../.yarn/bin/pm2 start ecosystem.config.js --only collectibles-graphql-service'
                 }
             }
         }
