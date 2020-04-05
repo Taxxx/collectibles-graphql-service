@@ -29,7 +29,7 @@ export class Collectible extends BaseEntity {
     DateAcquisition: string;
 
     @Field(() => String, { nullable: true })
-    @Column({ type: 'timestamp without time zone' })
+    @Column({ nullable: true, type: 'timestamp without time zone' })
     DateOfProduction: string;
 
     @Field(() => String, { nullable: true })
