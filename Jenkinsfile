@@ -35,7 +35,7 @@ pipeline {
             steps {
                 dir('dist') {
                     sh 'docker build -t collectibles-graphql-service .'
-                    sh 'docker run -p 4000:4000 -d collectibles-graphql-service'
+                    sh 'docker run -p 4000:4000 -d -name collectibles-graphql-service collectibles-graphql-service'
                 }
             }
         }
