@@ -30,7 +30,7 @@ pipeline {
                 sh 'yarn test'
             }
         }
-        stage('Docker Deploy') {
+        stage('Deploy') {
             agent any
             steps {
                 dir('dist') {
