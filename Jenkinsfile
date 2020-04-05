@@ -1,16 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:13.8.0-alpine3.10'
-            args '-p 4000:4000'
-        }
-    }
+    agent none
     environment { 
         CI = 'true'
         HOME = '.'
     }
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    image 'node:13.8.0-alpine3.10'
+                }
+            }
             steps {
                 sh 'yarn global add pm2'
                 sh 'yarn install'
@@ -21,11 +21,17 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:13.8.0-alpine3.10'
+                }
+            }
             steps {
                 sh 'yarn test'
             }
         }
         stage('Docker Deploy') {
+            agent any
             steps {
                 dir('dist') {
                     sh 'docker build -t collectibles-graphql-service .'
