@@ -34,8 +34,7 @@ pipeline {
             agent any
             steps {
                 dir('dist') {
-                    sh 'docker-compose down'
-                    sh 'docker-compose up'
+                    sh 'docker-compose up -d'
                 }
             }
         }
