@@ -32,6 +32,6 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "npm run lint && yarn jest",
     "cp-config-files": "cp /var/configApps/ormconfig.json dist",
-    "build": "tsc -p . && cp package.json dist && cp ecosystem.config.js dist && cp Dockerfile dist && cp -R node_modules dist/node_modules"
+    "build": "tsc -p . && cp package.json dist && cp ecosystem.config.js dist && cp Dockerfile dist && cp docker-compose.yml dist && cp -R node_modules dist/node_modules"
   }
 }
