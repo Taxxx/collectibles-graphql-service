@@ -6,7 +6,7 @@
   "author": "Henrry Chuquimia - TaXxX",
   "license": "MIT",
   "dependencies": {
-    "apollo-server": "^2.10.1",
+    "apollo-server": "^2.14.2",
     "class-validator": "^0.11.0",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.13",
